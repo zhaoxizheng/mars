@@ -171,6 +171,7 @@ public class Item {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		// in case the itemid is an empty string
 		result = prime * result + ((itemId == null) ? 0 : itemId.hashCode());
 		return result;
 	}
