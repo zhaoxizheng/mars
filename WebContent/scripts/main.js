@@ -21,6 +21,10 @@
 
 	function initGeoLocation() {
 		if (navigator.geolocation) { //(success, error, [options])
+			// Request a position. We accept positions whose age is not
+			// greater than 1 minutes. If the user agent does not have a
+			// fresh enough cached position object, it will automatically
+			// acquire a new one.
 			navigator.geolocation.getCurrentPosition(onPositionUpdated,
 					onLoadPositionFailed, {
 						maximumAge : 60000
@@ -75,7 +79,7 @@
 		var btns = document.getElementsByClassName('main-nav-btn');
 
 		// deactivate all navigation buttons
-		for (var i = 0; i < btns.length; i++) { // \b matches a word boundary
+		for (var i = 0; i < btns.length; i++) { // \b is a zero-width word boundary
 			btns[i].className = btns[i].className.replace(/\bactive\b/, '');
 		}
 
@@ -360,7 +364,7 @@
 		// title
 		var title = $('a', {
 			href : item.url,
-			target : '_blank',
+			target : '_blank', // a target=”_blank” Open in New Browser Tab 
 			className : 'item-name'
 		});
 		title.innerHTML = item.name;
