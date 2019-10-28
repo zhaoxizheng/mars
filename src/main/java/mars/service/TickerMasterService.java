@@ -34,7 +34,7 @@ import mars.algorithm.GeoRecommendation;
 public class TickerMasterService extends AbstractGenericService<Item> {
 	
 	@Autowired
-	@Qualifier("restTemplate")
+	@Qualifier("restTemplate") // defined in ApplicationConfiguration
 	private RestTemplate restTemplate;
 	
 	@Autowired
